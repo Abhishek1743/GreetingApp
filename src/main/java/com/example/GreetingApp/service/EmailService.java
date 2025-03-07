@@ -38,7 +38,6 @@ public class EmailService {
         mailSender.send(message);
     }
 
-
     // ✅ Send an Email with Attachment
     public void sendEmailWithAttachment(String to, String subject, String text, String attachmentPath) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
@@ -54,4 +53,10 @@ public class EmailService {
 
         mailSender.send(message);
     }
+
+    public void sendPasswordResetEmail(String to) {
+        sendSimpleEmail(to, "Password Changed",
+                "Your password has been successfully updated.");
+    }
+
 }
